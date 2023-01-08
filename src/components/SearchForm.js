@@ -1,6 +1,6 @@
 import { useState } from "react"
 import useFetchWeather from "../components/services/useFetchWeather"
-import WeatherForecast from "./WeatherForecast"
+import TheResults from "./TheResults"
 
 
 const SearchForm = () => {
@@ -66,7 +66,7 @@ const SearchForm = () => {
         >Search</button>
       </form>
 
-      <WeatherForecast
+      <TheResults
         data={data}
         error={error}
         isLoading={isLoading}
