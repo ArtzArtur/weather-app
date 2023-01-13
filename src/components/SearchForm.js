@@ -6,22 +6,23 @@ import { useNavigate } from "react-router-dom"
 
 const SearchForm = () => {
   
+const [query, setQuery] = useState(null);
+const [city, setCity] = useState("");
+
 const findLocation = (e) => {
     e.preventDefault()
-    setIsLoading(true)
-    setData('')
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(actualPosition, positionError)
     }
   }
-  const [query, setQuery] = useState();
-  const [city, setCity] = useState("");
   const [minChars, setMinChars] = useState(false);
   const handleChange = (e) => {
     e.preventDefault()
     setCity(e.target.value)
   }
+  
   const navigate = useNavigate()
+
   const citySearch = (e) => {
     e.preventDefault()
     if (city.trim().length > 2) {
@@ -38,12 +39,13 @@ const findLocation = (e) => {
     setIsLoading(false)
   }
   const actualPosition = (pos) => {
+    setCity("")
     navigate('/weather-app/')
     setQuery(`lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`
     )
   }
 
-  const { data, setData, error, setError, isLoading, setIsLoading } = useFetchWeather(query)
+  const { data, error, setError, isLoading, setIsLoading } = useFetchWeather(query,setQuery)
 
   return (
     <section>

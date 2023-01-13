@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 const apiKey = "3d1500d87a7ce7f53538d22f4d37f492"
 
-const useFetch = (query) => {
+const useFetch = (query,setQuery) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-
   const timeTransform = (timestamp) => {
     let date = new Date(timestamp * 1000)
     let hours = date.getHours()
@@ -18,9 +17,9 @@ const useFetch = (query) => {
 
   useEffect(() => {
     if (query) {
-      setError(false)
+      console.log("start")
       setIsLoading(true)
-      setTimeout(()=>{
+      setError(false)
       fetch(`https://api.openweathermap.org/data/2.5/weather?${query}&units=metric&appid=${apiKey}`)
         .then(response => {
           if(response.status===404){
@@ -41,6 +40,9 @@ const useFetch = (query) => {
           setError(null)
           setIsLoading(false)
           setData(response)
+          setQuery("")
+          console.log("loaded")
+
         })
         .catch(err => {
           setData('')
@@ -49,11 +51,10 @@ const useFetch = (query) => {
         }
         
         )
-      },500)
     }
     
   }
-  , [query])
+  ,[query,setQuery])
   return { data,setData, error, setError, isLoading, setIsLoading }
 }
 
