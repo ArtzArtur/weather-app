@@ -17,7 +17,7 @@ const WeatherForecast = ({ error, isLoading, data }) => {
           </div>
           <div className="font-[400] md:flex md:flex-col md:justify-center md:items-center md:border-l-[1px]">
             <div>
-              <p className="uppercase p-1 bg-orange-600 bg-opacity-70 mt-2">{data.weather[0].description}</p>
+              <p className="uppercase p-1 bg-orange-700 bg-opacity-70 mt-2">{data.weather[0].description}</p>
             </div>
             <div className="grid grid-cols-2 justify-between">
               <div className="text-left p-2">
