@@ -1,11 +1,12 @@
 import { useState } from "react"
 import useFetchWeather from "../components/services/useFetchWeather"
 import TheResults from "./TheResults"
+import { useNavigate } from "react-router-dom"
 
 
 const SearchForm = () => {
-
-  const findLocation = (e) => {
+  
+const findLocation = (e) => {
     e.preventDefault()
     setIsLoading(true)
     setData('')
@@ -20,11 +21,12 @@ const SearchForm = () => {
     e.preventDefault()
     setCity(e.target.value)
   }
-
+  const navigate = useNavigate()
   const citySearch = (e) => {
     e.preventDefault()
     if (city.trim().length > 2) {
       setMinChars(false)
+      navigate('/weather-app/')
       setQuery(`q=${city}`)
     }
     else {
@@ -36,6 +38,7 @@ const SearchForm = () => {
     setIsLoading(false)
   }
   const actualPosition = (pos) => {
+    navigate('/weather-app/')
     setQuery(`lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`
     )
   }

@@ -7,8 +7,8 @@ const WeatherForecast = ({ error, isLoading, data }) => {
     <div>
       {data.main&&!isLoading ?
         <div 
-        className="grid place-content-center text-white bg-orange-800 bg-opacity-50 p-1 max-w-[400px] mx-auto text-center
-      md:max-w-[850px] md:grid-cols-2 md:py-[2rem] text-lg md:text-xl">
+        className="grid place-content-center text-white bg-orange-800 bg-opacity-50 p-1 text-center
+        md:grid-cols-2 md:py-[2rem] text-lg md:text-xl">
           <div className="bg-opacity-20 grid place-content-center max-w-[400px] border-b-2 md:border-r-[1px] md:border-b-0 p-2">
             <h1 className="text-2xl font-bold md:text-5xl">{data.name}</h1>
             <img src={data.icon} alt="weather condition icon" className="justify-self-center w-[clamp(3rem,15vw,8rem)]" />
@@ -48,7 +48,7 @@ const WeatherForecast = ({ error, isLoading, data }) => {
 
       <TheLoader isLoading={isLoading}/>
 
-      {error ? <div className="grid place-content-center text-white bg-orange-800 p-2 mx-auto bg-opacity-40 max-w-[400px] md:max-w-[900px] text-2xl">{error}</div> : null}
+      {error ? <div className="grid place-content-center text-white bg-orange-800 p-2 bg-opacity-40  text-2xl">{error}</div> : null}
     </div>
   );
 }

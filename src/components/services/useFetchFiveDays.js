@@ -45,6 +45,13 @@ function useFetchFiveDays(query) {
       return res.json()
     })
     .then(res=>{
+      res.list.forEach(weather=>{
+        const convertedTime = new Date(weather.dt*1000)
+        const actualTime = new Date()
+        weather.actualDay = actualTime.getDate()
+        weather.hour = convertedTime.getHours()
+        weather.day = convertedTime.getDate()
+      })
       dispatch({type:'FETCH_SUCCESS',payload:res})
     }
       )

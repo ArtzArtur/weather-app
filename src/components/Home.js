@@ -8,7 +8,7 @@ const Home = () => {
       <h1 className="text-[clamp(2rem,3.5vw,4.5rem)]">Weather App</h1>
       <p className="font-thin text-lg sm:text-2xl leading-[15px]">Everything about weather, wherever you are</p>
       </header>
-      <main>
+      <main className="max-w-[400px] md:max-w-[850px] mx-auto">
       <SearchForm/>
       </main>
 
