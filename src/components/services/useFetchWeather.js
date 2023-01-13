@@ -17,7 +17,6 @@ const useFetch = (query,setQuery) => {
 
   useEffect(() => {
     if (query) {
-      console.log("start")
       setIsLoading(true)
       setError(false)
       fetch(`https://api.openweathermap.org/data/2.5/weather?${query}&units=metric&appid=${apiKey}`)
@@ -41,8 +40,6 @@ const useFetch = (query,setQuery) => {
           setIsLoading(false)
           setData(response)
           setQuery("")
-          console.log("loaded")
-
         })
         .catch(err => {
           setData('')
