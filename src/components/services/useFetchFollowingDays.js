@@ -28,7 +28,7 @@ const reducer = (state,action) => {
 }
 
 
-function useFetchFiveDays(query) {
+function useFetchFollowingDays(query) {
   const apiKey = "3d1500d87a7ce7f53538d22f4d37f492"
   const [state,dispatch] = useReducer(reducer,{
     data:[],
@@ -64,4 +64,4 @@ useEffect(()=>{
   return {state}
 }
 
-export default useFetchFiveDays
+export default useFetchFollowingDays

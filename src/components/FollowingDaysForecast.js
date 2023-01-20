@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
-import useFetchFiveDays from "./services/useFetchFiveDays"
+import useFetchFollowingDays from "./services/useFetchFollowingDays"
 import TheLoader from "./TheLoader"
 import BackBtn from "./BackBtn"
 
-function FiveDaysForecast() {
+function FollowingDaysForecast() {
   const { id } = useParams()
-  const { state } = useFetchFiveDays(id)
+  const { state } = useFetchFollowingDays(id)
   return (
     <div className="bg-orange-800 bg-opacity-50">
       <BackBtn />
@@ -28,7 +28,7 @@ function FiveDaysForecast() {
             </span>
           </div>
           : null}
-        <div className="grid md:grid-cols-5">
+        <div className="grid justify-stretch md:justify-center md:grid-flow-col-dense">
           {state.data.list ? state.data.list.map((w, i) =>
             w.actualDay < w.day && w.hour === 13 ?(
               <div key={i} className="bg-orange-800 bg-opacity-50 text-center p-2 m-1">
@@ -53,4 +53,4 @@ function FiveDaysForecast() {
   )
 }
 
-export default FiveDaysForecast
+export default FollowingDaysForecast

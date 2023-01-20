@@ -1,7 +1,7 @@
 import WeatherForecast from "./WeatherForecast"
 import {Routes, Route } from "react-router-dom"
 import CountryInfo from './CountryInfo'
-import FiveDaysForecast from './FiveDaysForecast'
+import FollowingDaysForecast from './FollowingDaysForecast'
 
 function TheResults({ data, error, isLoading, setIsLoading, setError }) {
   return (
@@ -15,7 +15,7 @@ function TheResults({ data, error, isLoading, setIsLoading, setError }) {
             setError={setError}
           />} />
           <Route path="/weather-app/CountryInfo/:id" element={<CountryInfo />} />
-          <Route path="/weather-app/FiveDaysForecast/:id" element={<FiveDaysForecast />} />
+          <Route path="/weather-app/FollowingDaysForecast/:id" element={<FollowingDaysForecast />} />
         </Routes>
     </div>
   )

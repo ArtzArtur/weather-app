@@ -39,7 +39,7 @@ const WeatherForecast = ({ error, isLoading, data }) => {
               <div className="pb-2">
 
                 <Link className="bg-orange-700 mx-1 p-1 rounded hover:bg-orange-500" to={`/weather-app/CountryInfo/${data.sys.country}`}>Country info</Link>
-                <Link className="bg-orange-700 mx-1 p-1 rounded hover:bg-orange-500" to={`/weather-app/FiveDaysForecast/${data.name}`}>5-day forecast</Link>
+                <Link className="bg-orange-700 mx-1 p-1 rounded hover:bg-orange-500" to={`/weather-app/FollowingDaysForecast/${data.name}`}>Following days forecast</Link>
 
               </div>
             </div>
