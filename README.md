@@ -5,7 +5,8 @@
 
 ## General Information
 - Weather application with search engine, geolocation, country informations following days forecast.  
-Custom hooks made in different ways also for training purposes
+Custom hooks made in different ways also for training purposes. RESTful API used in app [_OpenWeatherMaps_](https://openweathermap.org/api/).
+
 
 
 ## Technologies Used
