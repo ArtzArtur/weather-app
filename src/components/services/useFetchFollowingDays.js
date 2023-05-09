@@ -50,6 +50,10 @@ function useFetchFollowingDays(query) {
         const actualTime = new Date()
         weather.actualDay = actualTime.getDate()
         weather.hour = convertedTime.getHours()
+        weather.month = convertedTime.getMonth()+1
+        weather.year = convertedTime.getFullYear()
+        weather.hour = convertedTime.getHours()
+
         weather.day = convertedTime.getDate()
       })
       dispatch({type:'FETCH_SUCCESS',payload:res})
