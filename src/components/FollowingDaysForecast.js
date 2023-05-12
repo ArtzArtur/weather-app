@@ -5,7 +5,6 @@ import BackBtn from "./BackBtn"
 function FollowingDaysForecast() {
   const { id } = useParams()
   const { state } = useFetchFollowingDays(id)
-  console.log(state.data.list)
   return (
     <div className="bg-orange-800 bg-opacity-50">
       <BackBtn />
@@ -18,19 +17,20 @@ function FollowingDaysForecast() {
           Error: {state.error}
         </p> </div> : null}
 
-      <div className=" text-white p-1">        {state.data.city ?
+      <div className=" text-white p-1">        {id ?
           <div className="text-center p-2 bg-orange-900 text-white text-2xl font-bold col-span-full grid ">
             <span>
-              {state.data.city.name}
+              {id}
             </span>
           </div>
           : null}
-        <div className="flex flex-col lg:flex-row overflow-x-scroll">
-          {state.data.list ? state.data.list.map((weather,index)=>
+        <div className="flex flex-col lg:flex-row">
+          {state.data ? state.data.map((weather,index)=>
           <div key={index} className="p-2 border border-1 text-center">
-            <p>Date:{weather.dt_txt}</p>
-            <p>Max temperature: {weather.main.temp_min}</p>
-            <p>Min temperature {weather.main.temp_max}</p>
+            <p className="p-1 text-lg">Date: {weather.dt_txt.split(" ")[0]}</p>
+            <p className="first-letter:uppercase">{weather.weather[0].description}</p>
+            <p>Avarage temperature: {weather.main.temp}</p>
+            <p>Avarage temperature: {weather.wind.speed} m/s</p>
             <img className="mx-auto" src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`} alt="" />
           </div>) :null}
         </div>

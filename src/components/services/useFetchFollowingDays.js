@@ -45,18 +45,12 @@ function useFetchFollowingDays(query) {
       return res.json()
     })
     .then(res=>{
-      res.list.forEach(weather=>{
-        const convertedTime = new Date(weather.dt*1000)
-        const actualTime = new Date()
-        weather.actualDay = actualTime.getDate()
-        weather.hour = convertedTime.getHours()
-        weather.month = convertedTime.getMonth()+1
-        weather.year = convertedTime.getFullYear()
-        weather.hour = convertedTime.getHours()
-
-        weather.day = convertedTime.getDate()
-      })
-      dispatch({type:'FETCH_SUCCESS',payload:res})
+      const today = res.list[0].dt_txt.split(" ")[0]
+      const filtered = res.list.filter(weather=>
+        weather.dt_txt.indexOf("15:00:00") !== -1 && weather.dt_txt.indexOf(today) 
+      )
+      console.log(filtered)
+      dispatch({type:'FETCH_SUCCESS',payload:filtered})
     }
       )
     .catch(err=>dispatch({type:'FETCH_ERROR',payload:err.message}))

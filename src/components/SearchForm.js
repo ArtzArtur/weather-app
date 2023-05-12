@@ -49,7 +49,7 @@ const findLocation = (e) => {
 
   return (
     <section>
-      <form className="p-2 grid place-content-center text-center bg-orange-600 bg-opacity-80 mx-auto  max-w-[400px] md:max-w-[850px]">
+      <form className="p-2 grid place-content-center text-center bg-orange-600 bg-opacity-80 mx-auto  max-w-[400px] md:max-w-[1000px]">
         <label className="text-white">Search location:</label>
         <div className="flex justify-center items-center p-2">
           <input
