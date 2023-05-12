@@ -49,7 +49,6 @@ function useFetchFollowingDays(query) {
       const filtered = res.list.filter(weather=>
         weather.dt_txt.indexOf("15:00:00") !== -1 && weather.dt_txt.indexOf(today) 
       )
-      console.log(filtered)
       dispatch({type:'FETCH_SUCCESS',payload:filtered})
     }
       )
